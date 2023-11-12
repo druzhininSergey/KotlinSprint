@@ -12,4 +12,5 @@ fun main() {
     val newInvestmentAmount = initialInvestmentAmount * (1 + annualRate / paymentsPerYear).pow (paymentsPerYear * yearsToPay)
 
     println("%.3f".format(newInvestmentAmount))
+
 }
