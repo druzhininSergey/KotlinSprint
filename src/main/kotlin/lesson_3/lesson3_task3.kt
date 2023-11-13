@@ -20,5 +20,5 @@ fun main () {
     println(result)
     }
     
-    else println("Вы ввели некорректное значение")
+    else println("Вы ввели некорректное значение.")
 }
