@@ -3,19 +3,22 @@ package lesson_3
 fun main () {
 
     println("Введите число:")
-    val x = readLine()!!.toInt()
+    val numberToCheck = readln().toIntOrNull()
 
-    val y = """
-        $x * 1 = ${x * 1}
-        $x * 2 = ${x * 2}
-        $x * 3 = ${x * 3}
-        $x * 4 = ${x * 4}
-        $x * 5 = ${x * 5}
-        $x * 6 = ${x * 6}
-        $x * 7 = ${x * 7}
-        $x * 8 = ${x * 8}
-        $x * 9 = ${x * 9}
+    if (numberToCheck != null) {
+
+        val result = """
+        $numberToCheck * 1 = ${numberToCheck * 1}
+        $numberToCheck * 2 = ${numberToCheck * 3}
+        $numberToCheck * 4 = ${numberToCheck * 4}
+        $numberToCheck * 5 = ${numberToCheck * 5}
+        $numberToCheck * 6 = ${numberToCheck * 6}
+        $numberToCheck * 7 = ${numberToCheck * 7}
+        $numberToCheck * 8 = ${numberToCheck * 8}
+        $numberToCheck * 9 = ${numberToCheck * 9}
     """.trimIndent()
-
-    println(y)
+    println(result)
+    }
+    
+    else println("Вы ввели некорректное значение")
 }
