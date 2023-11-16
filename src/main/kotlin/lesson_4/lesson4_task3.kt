@@ -9,7 +9,6 @@ fun main() {
 
     val isSunnyToday = true
     val isAwningOpenToday = true
-
     val humidityToday = 20
     val seasonToday = "Зима"
 
