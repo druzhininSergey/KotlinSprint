@@ -1,6 +1,6 @@
 package lesson_4
 
-const val AVERAGE_WEIGHT_FROM = 30
+const val AVERAGE_WEIGHT_FROM = 35
 const val AVERAGE_WEIGHT_TO = 100
 const val AVERAGE_VOLUME = 100
 
