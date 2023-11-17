@@ -4,12 +4,11 @@ fun main() {
 
     val dayNumber = 5
     val isDayEven = dayNumber % 2 == 0
-    val isDayOdd = dayNumber % 2 != 0
 
-    val armsExercises = isDayOdd
+    val armsExercises = !isDayEven
     val legsExercises = isDayEven
     val backExercises = isDayEven
-    val absExercises = isDayOdd
+    val absExercises = !isDayEven
 
     println(
         """
