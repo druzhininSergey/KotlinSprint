@@ -1,12 +1,14 @@
 package lesson_5
 
-const val NUMBER_TO_CHECK = 8
-
 fun main() {
 
-    println("Чему равно выражение 3+5?")
-    val botIdentify = readln().toIntOrNull()
+    val firstNumberSum = 3
+    val secondNumberSum = 5
+    val sumResult = firstNumberSum + secondNumberSum
 
-    if (botIdentify == NUMBER_TO_CHECK) println("Добро пожаловать")
+    println("Чему равно выражение $firstNumberSum + $secondNumberSum?")
+    val userSumAnswer = readln().toIntOrNull()
+
+    if (userSumAnswer == sumResult) println("Добро пожаловать")
     else println("Доступ запрещен")
 }
