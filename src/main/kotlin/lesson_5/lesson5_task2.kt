@@ -8,7 +8,9 @@ fun main() {
     println("Введите Ваш год рождения:")
     val userYearOfBirth = readln().toIntOrNull()
 
-    val userAgeVerification = if (CURRENT_YEAR - userYearOfBirth!! >= AGE_OF_MAJORITY) "Показать экран со скрытым контентом"
-    else "Доступ к контенту ограничен"
-    println(userAgeVerification)
+    if (userYearOfBirth != null) {
+        if (CURRENT_YEAR - userYearOfBirth >= AGE_OF_MAJORITY) println("Показать экран со скрытым контентом")
+        else println("Доступ к контенту ограничен")
+    }
+    else println("Введите корректные данные")
 }
