@@ -14,14 +14,10 @@ fun main() {
     do {
         println("Введи число:")
         val userNumberChoice = readln().toIntOrNull()
-        if (userNumberChoice != null && userNumberChoice != randomNumber) {
-            println(failedAttemptMessages.random())
-            println("Осталось попыток: ${--numbersOfAttempts}")
-            if (numbersOfAttempts == 0) println("GAME OVER нужно было написать всего лишь число $randomNumber эх ты...")
-        } else if (userNumberChoice != null && userNumberChoice == randomNumber)
-            println("Это была великолепная игра!!!")
+        if (userNumberChoice != null && userNumberChoice == randomNumber)
+            println("Ты выиграл! Это была великолепная игра!!!")
         else {
-            println("Что-то не то ты ввел, но попытка засчитана, молодец, попробуй еще...")
+            println(failedAttemptMessages.random())
             println("У тебя осталось ${--numbersOfAttempts} попыток")
             if (numbersOfAttempts == 0) println("GAME OVER нужно было написать всего лишь число $randomNumber эх ты...")
         }
