@@ -14,14 +14,10 @@ fun main() {
         println("Введите результат:")
         val userTestAnswer = readln().toIntOrNull()
 
-        if (userTestAnswer != null && userTestAnswer != userTestAnswer) {
-            attemptsAmount--
-            println("Результат сложения неверный, попробуйте снова. Осталось попыток: $attemptsAmount")
-            if (attemptsAmount == 0) println("Доступ запрещен")
-        } else if (userTestAnswer != null && userTestAnswer == sumAnswerForTest) println("Добро пожаловать!")
+        if (userTestAnswer != null && userTestAnswer == sumAnswerForTest) println("Добро пожаловать!")
         else {
             attemptsAmount--
-            println("Введен некорректный символ, осталось попыток: $attemptsAmount")
+            println("Результат сложения неверный, попробуйте снова. Осталось попыток: $attemptsAmount")
             if (attemptsAmount == 0) println("Доступ запрещен")
         }
     } while (attemptsAmount > 0 && userTestAnswer != sumAnswerForTest)
