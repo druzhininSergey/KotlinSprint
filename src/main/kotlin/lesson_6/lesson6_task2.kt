@@ -2,15 +2,9 @@ package lesson_6
 
 fun main() {
 
-    println("Для запуска таймера, введите время в секундах, чтобы начать отчет")
-    var userTimerSeconds = readln().toIntOrNull()
-    val firstUserValue = userTimerSeconds
+    println("Для запуска таймера, введите время в секундах, чтобы начать отчет:")
+    val userTimerSeconds = readln().toIntOrNull() ?: 0
+    Thread.sleep(userTimerSeconds * 1000L)
 
-    if (userTimerSeconds != null) {
-        while (userTimerSeconds > 0) {
-            userTimerSeconds--
-            Thread.sleep(1000)
-        }
-        println("Прошло $firstUserValue секунд")
-    } else println("Введены некорректные данные, попробуйте снова")
+    println("Прошло $userTimerSeconds секунд")
 }
