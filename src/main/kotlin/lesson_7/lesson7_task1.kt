@@ -5,7 +5,8 @@ fun main() {
     val letterForPassword = 'a'..'z'
     val digitForPassword = 0..9
 
-    val randomPassword = "${letterForPassword.random()}${digitForPassword.random()}${letterForPassword.random()}" +
-            "${digitForPassword.random()}${letterForPassword.random()}${digitForPassword.random()}"
-    println(randomPassword)
+    for (i in 1..3) {
+        val randomPassword = "${letterForPassword.random()}${digitForPassword.random()}"
+        print(randomPassword)
+    }
 }
