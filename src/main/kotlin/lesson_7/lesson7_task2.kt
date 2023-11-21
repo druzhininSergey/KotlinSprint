@@ -4,7 +4,7 @@ fun main() {
 
     val rangeOfAuthorizationNumbers = 1000..9999
 
-    for (i in 1..Int.MAX_VALUE) {
+    for (i in 1..3) {
         val authorizationNumber = rangeOfAuthorizationNumbers.random()
         println("Ваш код авторизации: $authorizationNumber")
         println("Введите код авторизации:")
