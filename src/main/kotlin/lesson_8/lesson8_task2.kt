@@ -12,9 +12,9 @@ fun main() {
     for (i in 0..arrayOfIngredientsForPilaf.lastIndex) {
         if (userIngredientSearch == arrayOfIngredientsForPilaf[i]) {
             ingredientInArray = true
+            println("Ингредиент $userIngredientSearch в рецепте есть")
             break
         }
     }
-    if (ingredientInArray == true) println("Ингредиент $userIngredientSearch в рецепте есть")
-    else println("Такого ингредиента в рецепте нет")
+    if (ingredientInArray != true) println("Такого ингредиента в рецепте нет")
 }
