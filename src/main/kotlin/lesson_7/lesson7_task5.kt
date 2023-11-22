@@ -9,14 +9,12 @@ fun main() {
     """.trimMargin()
     )
     var randomPassword = ""
-    val amountOfSymbolsForPassword = readln().toIntOrNull() ?: 0
+    var amountOfSymbolsForPassword = readln().toIntOrNull() ?: 0
 
-    if (amountOfSymbolsForPassword in 0..6) {
-        for (i in 1..6) {
-            randomPassword += symbolsForPassword.random()
-        }
-    } else for (i in 1..amountOfSymbolsForPassword) {
-        randomPassword += symbolsForPassword.random()
+    while (amountOfSymbolsForPassword in 0..5) {
+        println("Пожалуйста, введите число символов для пароля от 6 и более")
+        amountOfSymbolsForPassword = readln().toIntOrNull() ?: 0
     }
+    for (i in 1..amountOfSymbolsForPassword) randomPassword += symbolsForPassword.random()
     println(randomPassword)
 }
