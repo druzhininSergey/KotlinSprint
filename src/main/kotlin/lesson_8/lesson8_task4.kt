@@ -5,8 +5,8 @@ fun main() {
     val arrayOfIngredientsForPilaf = arrayOf(
         "картошка", "вода", "приправы для супа", "сало", "лук", "колбаса", "мясо"
     )
-    for (i in 0..arrayOfIngredientsForPilaf.lastIndex){
-        println("Ингредиент № ${i + 1}: ${arrayOfIngredientsForPilaf[i]}")
+    for (i in arrayOfIngredientsForPilaf){
+        println("Ингредиент № ${arrayOfIngredientsForPilaf.indexOf(i) + 1}: $i")
     }
     println("Какой ингредиент вы желаете заменить?")
     val userRequestToModifyArray = readln()
