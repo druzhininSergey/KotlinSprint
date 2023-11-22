@@ -12,7 +12,7 @@ fun main() {
         arrayOfIngredients += ingredientToAdd
     }
     println("Ваш новый список ингредиентов:")
-    for (i in 0..arrayOfIngredients.lastIndex) {
-        println("Ингредиент № ${i + 1}: ${arrayOfIngredients[i]}")
+    for (i in arrayOfIngredients) {
+        println("Ингредиент № ${arrayOfIngredients.indexOf(i)+1}: $i")
     }
 }
