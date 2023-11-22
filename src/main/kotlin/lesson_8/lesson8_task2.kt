@@ -7,14 +7,12 @@ fun main() {
     )
     println("Напишите наименование ингредиента, который вы хотите найти в рецепте")
     val userIngredientSearch = readln()
-    var ingredientInArray = false
 
-    for (i in 0..arrayOfIngredientsForPilaf.lastIndex) {
-        if (userIngredientSearch == arrayOfIngredientsForPilaf[i]) {
-            ingredientInArray = true
+    for (i in arrayOfIngredientsForPilaf) {
+        if (userIngredientSearch in arrayOfIngredientsForPilaf) {
             println("Ингредиент $userIngredientSearch в рецепте есть")
-            break
+            return
         }
     }
-    if (ingredientInArray != true) println("Такого ингредиента в рецепте нет")
+    println("Такого ингредиента в рецепте нет")
 }
