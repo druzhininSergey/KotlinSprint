@@ -2,16 +2,11 @@ package lesson_8
 
 fun main() {
 
-    println("Укажите какое количество ингредиентов вы хотите добавить в список:")
-    val userAmountOfIngredients = readln().toIntOrNull() ?: 0
-    val arrayOfIngredients = arrayOfNulls<String>(userAmountOfIngredients)
+    println("Укажите какое количество ингредиентов вы хотите добавить, \nзатем укажите какие ингредиенты включить в список?")
+    val userAmountOfIngredients = Array(readln().toIntOrNull() ?: 0) { readln() }
 
-    for (i in 0..<userAmountOfIngredients) {
-        println("Введите ${i + 1}-й ингредиент")
-        arrayOfIngredients[i] = readln()
-    }
     println("Ваш новый список ингредиентов:")
-    for (i in arrayOfIngredients) {
-        println("Ингредиент № ${arrayOfIngredients.indexOf(i) + 1}: $i")
+    for (i in userAmountOfIngredients) {
+        println("Ингредиент № ${userAmountOfIngredients.indexOf(i) + 1}: $i")
     }
 }
