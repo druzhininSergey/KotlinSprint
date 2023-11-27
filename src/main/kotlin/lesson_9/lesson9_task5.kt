@@ -3,14 +3,12 @@ package lesson_9
 
 fun main() {
 
-    val arrayOfUserIngredients = emptySet<String>().toMutableSet()
+    val userIngredients = mutableSetOf<String>()
     for (i in 1..5) {
         println("Введите $i-й ингредиент")
-        arrayOfUserIngredients += readln()
+        userIngredients += readln()
     }
-    val resultString = arrayOfUserIngredients.sorted().mapIndexed { index, ingredient ->
-        if (index == 0) ingredient.capitalize() else ingredient
-    }
-        .joinToString(", ")
+    val resultString = userIngredients.sorted().joinToString(", ")
+        .replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() }
     println(resultString)
 }
