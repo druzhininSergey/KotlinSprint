@@ -21,7 +21,7 @@ class Ingredients(
     val pageName: String = "Ингредиенты",
     val dishId: String,
     val dishName: String,
-    val pagePhoto: String,
+    val dishPhoto: String,
     val portions: Int,
     val ingredientNames: MutableSet<String>,
     val ingredientAmount: MutableList<Int>,
