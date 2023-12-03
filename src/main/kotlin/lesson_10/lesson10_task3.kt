@@ -9,7 +9,7 @@ fun main() {
 
 fun inputLength(length: Int) {
     val digits = '0'..'9'
-    val symbols = ('!'..'/') + ' '
+    val symbols = (' '..'/')
     var pass = ""
 
     for (i in 0..<length) {
