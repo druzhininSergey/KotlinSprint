@@ -6,36 +6,27 @@ class Member(
     fun addUserToRoom(user: User) {
         membersInRoomAvatars.add(user)
     }
+
+    fun showUserAvatars() {
+        for (user in membersInRoomAvatars) {
+            println(user.userAvatar)
+        }
+    }
+
     fun showUserInfo(avatar: String) {
         val userInfo = membersInRoomAvatars.find { it.userAvatar == avatar }
         if (userInfo != null) {
             println(userInfo.userName)
             println(userInfo.userStatus)
-        }
+        } else println("Этот пользователь скрыл информацию о себе")
     }
 }
 
 class User(
     val userName: String,
     val userAvatar: String,
-    var userStatus: String,
-){
-    fun changeStatus(){
-        println("""Для смены статуса $userName введите число:
-            |1. Разговаривает
-            |2. Микрофон выключен
-            |3. Пользователь заглушен
-            |При некорректном вводе будет выбран статус "Статус неизвестен"
-        """.trimMargin())
-        val status = readln().toIntOrNull() ?: 4
-        userStatus = when (status){
-            1 -> "Разговаривает"
-            2 -> "Микрофон выключен"
-            3 -> "Пользователь заглушен"
-            else -> "Статус неизвестен"
-        }
-    }
-}
+    val userStatus: String,
+)
 
 class Room(
     private val frontCover: String,
@@ -50,7 +41,7 @@ class Room(
 fun main() {
 
     val room1 = Room(
-        "Picture 2",
+        "IMG",
         "Игры",
     )
     val user1 = User(
@@ -63,30 +54,16 @@ fun main() {
         "Picture2",
         "Микрофон выключен"
     )
+
     val member = Member(mutableListOf())
     member.addUserToRoom(user1)
     member.addUserToRoom(user2)
-    user1.changeStatus()
+    room1.printRoomInfo()
+    println("Пользователи в комнате: ")
     println()
+    member.showUserAvatars()
 
-
-
-//    println("Комнаты с чатами:")
-//    room1.printRoomInfo()
-//    println()
-//    println("Выберите аватарку, чей профиль вы хотите посмотреть")
-
-
-
+    println("Выберите аватарку, чей профиль вы хотите посмотреть")
+    val chooseAvatar = readln()
+    member.showUserInfo(chooseAvatar)
 }
-
-//membersInRoomAvatars = listOf("photo1", "photo2", "photo3"),
-//userNames = listOf("Саня", "Петя", "Маша")
-
-//membersInRoomAvatars = listOf("photo4", "photo5", "photo6"),
-//userNames = listOf("", "FALLEN", "Faker")
-
-//
-//if (room1.membersInRoomAvatars.) room1.showUserInfo(chooseAvatar)
-//else if (room1.membersInRoomAvatars.contains(chooseAvatar)) room1.showUserInfo(chooseAvatar)
-//else println("Этот пользователь скрыл информацию о себе")
