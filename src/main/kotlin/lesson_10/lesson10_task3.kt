@@ -12,7 +12,7 @@ fun inputLength(length: Int) {
     val symbols = (' '..'/')
     var pass = ""
 
-    for (i in 0..<length) {
+    for (i in 1..length) {
         val digit = i % 2
         pass += if (digit == 0) digits.random()
         else symbols.random()
