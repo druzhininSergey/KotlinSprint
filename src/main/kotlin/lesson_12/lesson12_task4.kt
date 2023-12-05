@@ -4,7 +4,7 @@ package lesson_12
 class Weather4(dayTemperatureKelvin: Int, nightTemperatureKelvin: Int, _isRainy: Boolean) {
     val dayTemperatureCelsius = dayTemperatureKelvin - 273
     val nightTemperatureCelsius = nightTemperatureKelvin - 273
-    var isRainy = _isRainy
+    val isRainy = _isRainy
 
     fun printWeatherData() {
         println("Дневная температура: $dayTemperatureCelsius℃")
