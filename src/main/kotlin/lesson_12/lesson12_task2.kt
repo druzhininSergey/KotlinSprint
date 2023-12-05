@@ -1,9 +1,6 @@
 package lesson_12
 
-class Weather2(_dayTemperature: Int, _nightTemperature: Int, _isRainy: Boolean) {
-    private var dayTemperature = _dayTemperature
-    private var nightTemperature = _nightTemperature
-    private var isRainy = _isRainy
+class Weather2(val dayTemperature: Int, val nightTemperature: Int, val isRainy: Boolean) {
 
     fun printWeatherData() {
         println("Дневная температура: $dayTemperature℃")
@@ -12,6 +9,7 @@ class Weather2(_dayTemperature: Int, _nightTemperature: Int, _isRainy: Boolean) 
         else println("Наблюдались осадки")
     }
 }
+
 fun main() {
     val firstDay = Weather2(23, 19, true)
     firstDay.printWeatherData()
