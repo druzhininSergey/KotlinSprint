@@ -23,7 +23,7 @@ fun main() {
     val monthWeatherList = mutableListOf<Weather5>()
     val dayMonthTemperature = mutableListOf<Int>()
     val nightMonthTemperature = mutableListOf<Int>()
-    val isRainyMonth = mutableListOf<Boolean>()
+    val rainyDaysInMonth = mutableListOf<Boolean>()
 
     for (i in 1..30) {
         val monthDailyWeather = Weather5(
@@ -36,10 +36,10 @@ fun main() {
     for (i in monthWeatherList) {
         dayMonthTemperature.add(i.dayTemperatureCelsius)
         nightMonthTemperature.add(i.nightTemperatureCelsius)
-        isRainyMonth.add(i.isRainy)
+        rainyDaysInMonth.add(i.isRainy)
     }
 
     println("Средняя дневная температура в этом месяце: ${"%.1f".format(dayMonthTemperature.calculateAverageTemperature())}")
     println("Средняя ночная температура в этом месяце: ${"%.1f".format(nightMonthTemperature.calculateAverageTemperature())}")
-    println("В этом месяце было ${isRainyMonth.calculateRainyDays()} дождливых дней")
+    println("В этом месяце было ${rainyDaysInMonth.calculateRainyDays()} дождливых дней")
 }
