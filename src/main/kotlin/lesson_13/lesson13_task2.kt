@@ -8,7 +8,7 @@ class PhoneDirectory2(
     fun printContactData() {
         if (companyName != null) {
             println("-Имя: $name\n-Номер: $phoneNumber\n-Компания: $companyName")
-        } else println("-Имя: $name\n-Номер: $phoneNumber")
+        } else println("-Имя: $name\n-Номер: $phoneNumber\n-Компания: <не указано>")
     }
 }
 
