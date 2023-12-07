@@ -8,8 +8,7 @@ class PhoneDirectory4(
     var companyName: String? = null,
 ) {
     fun printContactData() {
-        if (companyName != null) println("-Имя: $name\n-Номер: $phoneNumber\n-Компания: $companyName")
-        else println("-Имя: $name\n-Номер: $phoneNumber\n-Компания: <не указано>")
+        println("-Имя: $name\n-Номер: $phoneNumber\n-Компания: ${companyName ?: "<не указано>"}")
     }
 }
 
