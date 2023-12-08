@@ -1,7 +1,5 @@
 package lesson_13
 
-import java.util.*
-
 class PhoneDirectory4(
     var name: String,
     var phoneNumber: Long,
@@ -14,14 +12,11 @@ class PhoneDirectory4(
 
 fun main() {
     val contactsList = mutableListOf<PhoneDirectory4>()
-    val redColor = "\u001B[31m"
-    val resetColor = "\u001B[0m"
+    var continueAnswer = ""
 
     do {
-        println("Введите имя$redColor или \"стоп\" чтобы завершить$resetColor:")
+        println("Введите имя:")
         val name = readln().trim()
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-        if (name == "Стоп") break
 
         println("Введите номер:")
         val phoneNumber = readln().trim().toLongOrNull() ?: 0
@@ -30,19 +25,22 @@ fun main() {
             continue
         }
 
-        println("Введите название компании,$redColor \"стоп\" чтобы завершить$resetColor или нажмите Enter для пропуска:")
+        println("Введите название компании, или нажмите Enter для пропуска:")
         var companyName: String? = readln().trim()
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-        if (companyName == "Стоп") break
-        else if (companyName == "") companyName = null
+        if (companyName == "") companyName = null
 
         val newContact = PhoneDirectory4(name, phoneNumber, companyName)
         contactsList.add(newContact)
-    } while (true)
+
+        println("Введите \"стоп\" желаете завершить добавление контактов или любой другой символ чтобы продолжить:")
+        continueAnswer = readln().trim().lowercase()
+
+    } while (continueAnswer != "стоп")
 
     for (i in contactsList) {
         i.printContactData()
         println("~~~~~~~~~~~~~~~~~~~~~~~")
     }
 }
+
 
