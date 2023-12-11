@@ -49,11 +49,24 @@ class Satellite(
 }
 
 fun main() {
+    val listOfPlanets = mutableListOf<Planet>()
+    val listOfSatellite = mutableListOf<Satellite>()
+
     val planetMars = Planet("Марс", false, true)
+    listOfPlanets.add(planetMars)
+
     val satellitePhobos = Satellite("Фобос", false, false)
     val satelliteDeimos = Satellite("Деймос", false, true)
+    listOfSatellite.add(satelliteDeimos)
+    listOfSatellite.add(satellitePhobos)
 
-    planetMars.addSatellite(satelliteDeimos)
-    planetMars.addSatellite(satellitePhobos)
+    for (satellite in listOfSatellite) {
+        for (planet in listOfPlanets) {
+            if (satellite.planetName == planet.name) {
+                planet.addSatellite(satellite)
+            }
+        }
+    }
+
     planetMars.printPlanetAndSatelliteInfo()
 }
