@@ -33,6 +33,12 @@ class Forum {
         }
 
         fun printThread() {
+            for (i in allMessages){
+                for (user in allUsers){
+                    if (user.userId == i.authorId)
+                    println("${user.userName}: ${i.message}")
+                }
+            }
         }
     }
 
