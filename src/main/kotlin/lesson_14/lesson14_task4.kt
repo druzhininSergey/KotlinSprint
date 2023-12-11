@@ -1,7 +1,5 @@
 package lesson_14
 
-import java.util.*
-
 open class CelestialBody(
     val name: String,
     val isAtmosphereBreathable: Boolean,
@@ -15,9 +13,7 @@ class Planet(
     val satelliteList: MutableList<Satellite> = mutableListOf(),
 ) : CelestialBody(name, isSuitableForLanding, isAtmosphereBreathable) {
 
-    fun addSatellite(satellite: Satellite) {
-        if (satellite.planetName == name) satelliteList.add(satellite)
-    }
+    fun addSatellite(satellite: Satellite) = satelliteList.add(satellite)
 
     fun printPlanetAndSatelliteInfo() {
         if (satelliteList.isNotEmpty()) {
@@ -33,20 +29,8 @@ class Satellite(
     name: String,
     isAtmosphereBreathable: Boolean,
     isSuitableForLanding: Boolean,
-    var planetName: String = "",
-) : CelestialBody(name, isAtmosphereBreathable, isSuitableForLanding) {
-
-    init {
-        planetName = attachToPlanet()
-    }
-
-    private fun attachToPlanet(): String {
-        println("Напишите название планеты, которой принадлежит спутник $name")
-        val planetToAttach = readln().trim().lowercase()
-            .replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() }
-        return planetToAttach
-    }
-}
+    var belongsToPlanet: String,
+) : CelestialBody(name, isAtmosphereBreathable, isSuitableForLanding)
 
 fun main() {
     val listOfPlanets = mutableListOf<Planet>()
@@ -55,14 +39,14 @@ fun main() {
     val planetMars = Planet("Марс", false, true)
     listOfPlanets.add(planetMars)
 
-    val satellitePhobos = Satellite("Фобос", false, false)
-    val satelliteDeimos = Satellite("Деймос", false, true)
+    val satellitePhobos = Satellite("Фобос", false, false, "Марс")
+    val satelliteDeimos = Satellite("Деймос", false, true, "Марс")
     listOfSatellite.add(satelliteDeimos)
     listOfSatellite.add(satellitePhobos)
 
     for (satellite in listOfSatellite) {
         for (planet in listOfPlanets) {
-            if (satellite.planetName == planet.name) {
+            if (satellite.belongsToPlanet == planet.name) {
                 planet.addSatellite(satellite)
             }
         }
