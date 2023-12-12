@@ -5,10 +5,12 @@ open class Liner2(
     val speed: Int = 80,
     val loadCapacity: Int = 50,
     val passengers: Int = 500,
-    val loadingMethod: String = "Выдвигает горизонтальный трап со шкафута.",
+    var isLadderExtended: Boolean = false,
 ) {
-    fun printShipLoadingMethod() {
-        println("Способ погрузки $shipName: $loadingMethod")
+    open fun toggleLoadingMethod() {
+        isLadderExtended = !isLadderExtended
+        if (isLadderExtended) println("Горизонтальный трап выдвинут со шкафута.")
+        else println("Горизонтальный трап собран в шкафут.")
     }
 }
 
@@ -17,20 +19,38 @@ class CargoShip(
     speed: Int = 50,
     loadCapacity: Int = 500,
     passengers: Int = 80,
-    loadingMethod: String = "Активация грузового крана.",
-) : Liner2(shipName, speed, loadCapacity, passengers, loadingMethod)
+    var isCraneActivated: Boolean = false,
+) : Liner2(shipName, speed, loadCapacity, passengers) {
+
+    override fun toggleLoadingMethod() {
+        isCraneActivated = !isCraneActivated
+        if (isCraneActivated) println("Грузовой кран активирован")
+        else println("Грузовой кран деактивирован")
+    }
+}
 
 class IceBreaker(
     shipName: String = "Ледокол",
     speed: Int = 40,
     loadCapacity: Int = 150,
     passengers: Int = 150,
-    loadingMethod: String = "Открывает ворота со стороны кормы.",
+    var isGateOpened: Boolean = false,
     val hasIceBreakingAbility: Boolean = true,
-) : Liner2(shipName, speed, loadCapacity, passengers, loadingMethod)
+) : Liner2(shipName, speed, loadCapacity, passengers) {
+
+    override fun toggleLoadingMethod() {
+        isGateOpened = !isGateOpened
+        if (isGateOpened) println("Ворота со стороны кормы открыты")
+        else println("Ворота со стороны кормы закрыты")
+    }
+}
 
 fun main() {
     val cargoShip = CargoShip()
     val iceBreaker = IceBreaker()
     val liner = Liner2()
+
+    cargoShip.toggleLoadingMethod()
+    iceBreaker.toggleLoadingMethod()
+    liner.toggleLoadingMethod()
 }
