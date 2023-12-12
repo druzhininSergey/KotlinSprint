@@ -9,8 +9,12 @@ open class Liner2(
 ) {
     open fun toggleLoadingMethod() {
         isLadderExtended = !isLadderExtended
-        if (isLadderExtended) println("Горизонтальный трап выдвинут со шкафута.")
-        else println("Горизонтальный трап собран в шкафут.")
+        if (isLadderExtended) println("${shipName}: Горизонтальный трап выдвинут со шкафута.")
+        else println("${shipName}: Горизонтальный трап собран в шкафут.")
+    }
+    open fun printLoadingMethodCondition() {
+        if (isLadderExtended) println("${shipName}: Горизонтальный трап сейчас выдвинут со шкафута.")
+        else println("${shipName}: Горизонтальный трап сейчас собран в шкафут.")
     }
 }
 
@@ -24,8 +28,13 @@ class CargoShip(
 
     override fun toggleLoadingMethod() {
         isCraneActivated = !isCraneActivated
-        if (isCraneActivated) println("Грузовой кран активирован")
-        else println("Грузовой кран деактивирован")
+        if (isCraneActivated) println("${shipName}: Грузовой кран активирован")
+        else println("${shipName}: Грузовой кран деактивирован")
+    }
+
+    override fun printLoadingMethodCondition() {
+        if (isCraneActivated) println("${shipName}: Грузовой кран сейчас активирован")
+        else println("${shipName}: Грузовой кран сейчас деактивирован")
     }
 }
 
@@ -40,8 +49,13 @@ class IceBreaker(
 
     override fun toggleLoadingMethod() {
         isGateOpened = !isGateOpened
-        if (isGateOpened) println("Ворота со стороны кормы открыты")
-        else println("Ворота со стороны кормы закрыты")
+        if (isGateOpened) println("${shipName}: Ворота со стороны кормы открыты")
+        else println("${shipName}: Ворота со стороны кормы закрыты")
+    }
+
+    override fun printLoadingMethodCondition() {
+        if (isGateOpened) println("${shipName}: В данный момент ворота со стороны кормы открыты")
+        else println("${shipName}: В данный момент ворота со стороны кормы закрыты")
     }
 }
 
@@ -50,7 +64,7 @@ fun main() {
     val iceBreaker = IceBreaker()
     val liner = Liner2()
 
-    cargoShip.toggleLoadingMethod()
-    iceBreaker.toggleLoadingMethod()
-    liner.toggleLoadingMethod()
+    cargoShip.printLoadingMethodCondition()
+    iceBreaker.printLoadingMethodCondition()
+    liner.printLoadingMethodCondition()
 }
