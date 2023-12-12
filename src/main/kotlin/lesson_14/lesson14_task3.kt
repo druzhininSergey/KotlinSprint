@@ -10,15 +10,14 @@ abstract class Figure(
 
     companion object {
         fun calculateSumByColor(list: MutableList<Figure>, color: String): Pair<Double, Double> {
-            val areaList = mutableListOf<Double>()
-            val perimeterList = mutableListOf<Double>()
-            for (i in list) {
-                if (i.color == color) {
-                    areaList.add(i.calculateArea())
-                    perimeterList.add(i.calculatePerimeter())
-                }
+            var areaSum = 0.0
+            var perimeterSum = 0.0
+            val filtered = list.filter { it.color == color }
+            for (i in filtered) {
+                areaSum += i.calculateArea()
+                perimeterSum += i.calculatePerimeter()
             }
-            return areaList.sum() to perimeterList.sum()
+            return areaSum to perimeterSum
         }
     }
 }
