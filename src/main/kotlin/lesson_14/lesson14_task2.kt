@@ -1,5 +1,14 @@
 package lesson_14
 
+class Loader() {
+    fun loadShips(ships: List<Liner2>) {
+        ships.forEach {
+            it.toggleLoadingMethod()
+            it.printLoadingMethodCondition()
+        }
+    }
+}
+
 open class Liner2(
     val shipName: String = "Лайнер",
     val speed: Int = 80,
@@ -12,6 +21,7 @@ open class Liner2(
         if (isLadderExtended) println("${shipName}: Горизонтальный трап выдвинут со шкафута.")
         else println("${shipName}: Горизонтальный трап собран в шкафут.")
     }
+
     open fun printLoadingMethodCondition() {
         if (isLadderExtended) println("${shipName}: Горизонтальный трап сейчас выдвинут со шкафута.")
         else println("${shipName}: Горизонтальный трап сейчас собран в шкафут.")
