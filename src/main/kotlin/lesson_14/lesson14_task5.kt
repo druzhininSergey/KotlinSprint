@@ -15,16 +15,18 @@ class ChildMessage(
 
 class Chat() {
     val listOfMessages = mutableListOf<Message>()
-    var id = 0
-    fun addMessage(userName: String, text: String) {
-        val userMessage = Message(id = ++id, userName = userName, userMessage = text)
+    var lastMessageId = 0
+    fun addMessage(userName: String, text: String): Message {
+        val userMessage = Message(id = ++lastMessageId, userName = userName, userMessage = text)
         listOfMessages.add(userMessage)
+        return userMessage
     }
 
-    fun addThreadMessage(userName: String, text: String, parentMessageId: Int) {
+    fun addThreadMessage(userName: String, text: String, parentMessageId: Int): ChildMessage {
         val userChildMessage =
-            ChildMessage(id = ++id, userName = userName, userMessage = text, parentMessageId = parentMessageId)
+            ChildMessage(id = ++lastMessageId, userName = userName, userMessage = text, parentMessageId = parentMessageId)
         listOfMessages.add(userChildMessage)
+        return userChildMessage
     }
 
     fun printChat(level: Int = 0) {
