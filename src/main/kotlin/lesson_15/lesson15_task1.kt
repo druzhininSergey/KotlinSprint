@@ -13,7 +13,7 @@ interface Flying {
         println("Лететь")
     }
 
-    fun run() {
+    fun startRunning() {
         println("Бежать")
     }
 }
@@ -74,5 +74,5 @@ fun main() {
     gull.dive()
     gull.takeOff()
     duck.land()
-    duck.run()
+    duck.startRunning()
 }
