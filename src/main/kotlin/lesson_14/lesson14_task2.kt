@@ -28,7 +28,7 @@ open class Liner2(
     }
 }
 
-class CargoShip(
+class CargoShip2(
     shipName: String = "Грузовой корабль",
     speed: Int = 50,
     loadCapacity: Int = 500,
@@ -48,7 +48,7 @@ class CargoShip(
     }
 }
 
-class IceBreaker(
+class IceBreaker2(
     shipName: String = "Ледокол",
     speed: Int = 40,
     loadCapacity: Int = 150,
@@ -70,8 +70,8 @@ class IceBreaker(
 }
 
 fun main() {
-    val cargoShip = CargoShip()
-    val iceBreaker = IceBreaker()
+    val cargoShip = CargoShip2()
+    val iceBreaker = IceBreaker2()
     val liner = Liner2()
 
     cargoShip.printLoadingMethodCondition()
