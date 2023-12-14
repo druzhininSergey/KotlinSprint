@@ -3,7 +3,6 @@ package lesson_15
 abstract class ForumMembers(
     val userId: Int,
     val userName: String,
-    val isAdmin: Boolean = false,
 ) {
     abstract fun readMessage()
     abstract fun addMessage()
@@ -20,8 +19,7 @@ class User(
 class Admin(
     userId: Int,
     userName: String,
-    isAdmin: Boolean = true,
-) : ForumMembers(userId, userName, isAdmin) {
+) : ForumMembers(userId, userName) {
     override fun readMessage() = println("Администратор $userName читает сообщения")
     override fun addMessage() = println("Администратор $userName добавил сообщение")
     fun deleteMessage() = println("Администратор $userName удалил сообщение")
