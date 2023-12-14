@@ -1,6 +1,6 @@
 package lesson_15
 
-interface Movement {
+interface Movable {
     fun startEngine() = println("Запустить двигатель")
     fun startDriving() = println("Начать движение")
     fun stopDriving() = println("Остановить движение")
@@ -44,7 +44,7 @@ interface CargoTransportation {
     fun unloadCargoFromCar() = println("Разгрузить автомобиль")
 }
 
-open class Car(val carName: String) : Movement
+open class Car(val carName: String) : Movable
 
 class PassengerClass(
     carName: String,
