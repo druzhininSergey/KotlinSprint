@@ -1,6 +1,6 @@
 package lesson_15
 
-interface Search {
+interface Searchable {
     fun searchSparePart() = println("Выполняется поиск")
 }
 
@@ -12,7 +12,7 @@ abstract class Products(
 class MusicalInstrument(
     name: String,
     numberOfUnitsInStock: Int,
-) : Products(name, numberOfUnitsInStock), Search
+) : Products(name, numberOfUnitsInStock), Searchable
 
 class SparePart(
     name: String,
