@@ -9,8 +9,8 @@ class UserOrder(
     }
 
     private fun changeOrderStatus(newStatus: String) {
-        println("Статус заказа №$orderNumber успешно изменен на:\n\"$newStatus\"")
         orderStatus = newStatus
+        println("Статус заказа №$orderNumber успешно изменен на:\n\"$newStatus\"")
     }
 }
 fun main() {
