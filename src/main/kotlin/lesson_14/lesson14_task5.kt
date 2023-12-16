@@ -24,17 +24,28 @@ class Chat() {
 
     fun addThreadMessage(userName: String, text: String, parentMessageId: Int): ChildMessage {
         val userChildMessage =
-            ChildMessage(id = ++lastMessageId, userName = userName, userMessage = text, parentMessageId = parentMessageId)
+            ChildMessage(
+                id = ++lastMessageId,
+                userName = userName,
+                userMessage = text,
+                parentMessageId = parentMessageId
+            )
         listOfMessages.add(userChildMessage)
         return userChildMessage
     }
 
-    fun printChat(level: Int = 0) {
+    fun printChat() {
         val groupedMessages =
-            listOfMessages.groupBy({ if (it is ChildMessage) it.parentMessageId else it.id }, { it.userMessage })
-        println(groupedMessages)
+            listOfMessages.groupBy { if (it is ChildMessage) it.parentMessageId else it.id }
+        groupedMessages.forEach { (_, messageList) ->
+            messageList.forEach { message ->
+                val tab = if (message is ChildMessage) "\t" else ""
+                println("$tab - ${message.userMessage}")
+            }
+        }
     }
 }
+
 
 fun main() {
     val message = Chat()
