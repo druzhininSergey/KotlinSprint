@@ -1,19 +1,19 @@
 package lesson_16
 
+private const val PI: Double = 3.14
+
 class Circle(
     private val radius: Double,
 ) {
-    private val pi: Double = 3.14
-
     fun calculateCircleLength(): Double {
-        val circleLength = 2 * pi * radius
-        println("Длина окружности, радиусом $radius равна: $circleLength")
+        val circleLength = 2 * PI * radius
+        println("Длина окружности, радиусом $radius, равна: $circleLength")
         return circleLength
     }
 
     fun calculateCircleArea(): Double {
-        val circleArea = pi * radius * radius
-        println("Площадь круга, радиусом $radius равна: $circleArea")
+        val circleArea = PI * radius * radius
+        println("Площадь круга, радиусом $radius, равна: $circleArea")
         return circleArea
     }
 }
