@@ -5,39 +5,43 @@ class Player(
     private var healthPoints: Int,
     private var attackDamage: Int,
 ) {
-    fun attackEnemy(enemy: Player): Any {
-        enemy.healthPoints -= attackDamage
-        if (enemy.healthPoints > 0) {
-            println("Здоровье ${enemy.playerName}: ${enemy.healthPoints}")
-            return enemy.healthPoints
-        } else return enemyDead(enemy)
+    fun attack(enemy: Player) {
+        enemy.takeDamage(attackDamage)
     }
 
-    fun healMyself(): Int? {
+    fun heal() {
         if (healthPoints > 0) {
             val healPoints = (healthPoints * 0.5).toInt()
             healthPoints += healPoints
             println("Лечение! Здоровье $playerName: $healthPoints")
-            return healthPoints
         } else {
             println("Ты уже мертв, лечение не поможет...")
-            return null
         }
     }
 
-    private fun enemyDead(enemy: Player) {
-        println("Игрок ${enemy.playerName} на помойке.")
-        enemy.healthPoints = 0
-        enemy.attackDamage = 0
+    private fun takeDamage(damage: Int) {
+        healthPoints -= damage
+        if (healthPoints <= 0) {
+            die()
+        } else {
+            println("Здоровье $playerName: $healthPoints")
+        }
+    }
+
+    private fun die() {
+        println("Игрок $playerName на помойке.")
+        healthPoints = 0
+        attackDamage = 0
     }
 }
 
 fun main() {
     val hero1 = Player("Ash", 400, 300)
     val hero2 = Player("Kalista", 516, 280)
-    hero1.attackEnemy(hero2)
-    hero2.attackEnemy(hero1)
-    hero1.healMyself()
-    hero2.attackEnemy(hero1)
-    hero1.healMyself()
+
+    hero1.attack(hero2)
+    hero2.attack(hero1)
+    hero1.heal()
+    hero2.attack(hero1)
+    hero1.heal()
 }
