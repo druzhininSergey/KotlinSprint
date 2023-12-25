@@ -9,4 +9,3 @@ class Quiz() {
             field = value
         }
 }
-
