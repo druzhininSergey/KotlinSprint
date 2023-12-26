@@ -3,12 +3,8 @@ package lesson_16
 class Player(
     private val playerName: String,
     private var healthPoints: Int,
-    private var attackDamage: Int,
+    var attackDamage: Int,
 ) {
-    fun attack(enemy: Player) {
-        enemy.takeDamage(attackDamage)
-    }
-
     fun heal() {
         if (healthPoints > 0) {
             val healPoints = (healthPoints * 0.5).toInt()
@@ -19,8 +15,8 @@ class Player(
         }
     }
 
-    private fun takeDamage(damage: Int) {
-        healthPoints -= damage
+    fun takeDamage(attack: Int) {
+        healthPoints -= attack
         if (healthPoints <= 0) {
             die()
         } else {
@@ -39,9 +35,9 @@ fun main() {
     val hero1 = Player("Ash", 400, 300)
     val hero2 = Player("Kalista", 516, 280)
 
-    hero1.attack(hero2)
-    hero2.attack(hero1)
+    hero2.takeDamage(hero1.attackDamage)
+    hero1.takeDamage(hero2.attackDamage)
     hero1.heal()
-    hero2.attack(hero1)
+    hero1.takeDamage(hero2.attackDamage)
     hero1.heal()
 }
