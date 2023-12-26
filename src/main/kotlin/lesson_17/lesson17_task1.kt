@@ -1,9 +1,9 @@
 package lesson_17
 
-class Quiz() {
-    val question = "Какое сегодня число?"
+class Quiz(question: String, answer: String) {
+    val question = question
         get() = field
-    var answer = "25 декабря"
+    var answer = answer
         get() = field
         set(value) {
             field = value
