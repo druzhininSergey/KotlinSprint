@@ -5,14 +5,14 @@ class Order {
         var orderNumber = 0
     }
 
-    fun getOrderData(
+    fun printOrderData(
         product: String,
     ) {
         orderNumber++
         println("Заказан товар: $product")
     }
 
-    fun getOrderData(
+    fun printOrderData(
         products: List<String>,
     ) {
         orderNumber++
@@ -24,6 +24,6 @@ class Order {
 fun main() {
     val x = Order()
     val y = Order()
-    x.getOrderData("Огурец")
-    y.getOrderData(listOf("Помидор", "Огурец"))
+    x.printOrderData("Огурец")
+    y.printOrderData(listOf("Помидор", "Огурец"))
 }
