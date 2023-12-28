@@ -1,31 +1,25 @@
 package lesson_18
 
-open class Dice {
-    open fun rollDice() {}
+abstract class Dice {
+    abstract val diceRange: IntRange
+    fun rollDice() {
+        println("Выпало число: ${diceRange.random()}")
+    }
 }
 
 class Dice4 : Dice() {
-    private val diceRange = 1..4
-    override fun rollDice() {
-        println("Выпало число: ${diceRange.random()}")
-    }
+    override val diceRange = 1..4
 }
 
 class Dice6 : Dice() {
-    private val diceRange = 1..6
-    override fun rollDice() {
-        println("Выпало число: ${diceRange.random()}")
-    }
+    override val diceRange = 1..6
 }
 
 class Dice8 : Dice() {
-    private val diceRange = 1..8
-    override fun rollDice() {
-        println("Выпало число: ${diceRange.random()}")
-    }
+    override val diceRange = 1..8
 }
 
-fun rollAllDice(diceList: List<Dice>) = diceList.forEach { it.rollDice() }
+fun rollAllDice(diceList: List<Dice>) = diceList.forEach { it.rollDice()}
 
 fun main() {
     val dice4: Dice = Dice4()
