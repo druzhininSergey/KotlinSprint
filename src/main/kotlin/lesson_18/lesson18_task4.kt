@@ -6,7 +6,7 @@ abstract class Cargo(
     private val height: Double,
 ) {
     fun calculateArea(): Double {
-        val area = width * length
+        val area = 2 * (width * length + width * height + length * height)
         println("Площадь поверхности посылки равна: $area")
         return area
     }
@@ -19,7 +19,5 @@ class RectangleBox(
 ) : Cargo(width, length, height)
 
 class CubeBox(
-    width: Double,
-    length: Double = width,
-    height: Double = width,
-) : Cargo(width, length, height)
+    side: Double,
+) : Cargo(side, side, side)
