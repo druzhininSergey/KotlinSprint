@@ -1,6 +1,6 @@
 package lesson_21
 
-fun String.countVowels(): Int {
+fun String.vowelCount(): Int {
     val vowels = setOf("a", "e", "i", "o", "u", "y", "A", "E", "I", "O", "U", "Y")
     val symbols = this.split("")
     val count = symbols.count { it in vowels }
@@ -10,5 +10,5 @@ fun String.countVowels(): Int {
 
 fun main() {
     val string = "hello, how are you?"
-    string.countVowels()
+    string.vowelCount()
 }
