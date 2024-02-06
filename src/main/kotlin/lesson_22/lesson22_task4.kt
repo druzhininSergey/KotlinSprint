@@ -8,6 +8,7 @@ enum class DataStatus(val state: String) {
 
 class MainScreenViewModel(private var mainScreenState: MainScreenState) {
     data class MainScreenState(var data: String? = null, var isLoading: Boolean = false)
+
     private val mainScreenStates = mutableListOf<MainScreenState>()
     fun loadData(data: String?, isLoading: Boolean) {
         val previousState = mainScreenState.copy()
